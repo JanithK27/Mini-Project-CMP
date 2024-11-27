@@ -38,9 +38,9 @@ Check out the demo of the project [here](https://drive.google.com/file/d/1klIStz
 
 ## 🤝 Contributors
 - Mohomad Iffath Hana
-- Janith Kavinda Hettiarachchi
 - Kesara Mahima Lakpriya
 - Oshan Wathsala
+- Janith Hettiarachchi
 
 ## 🔄 Current Status
 The project is not currently running, and the associated services have been stopped.
