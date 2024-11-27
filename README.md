@@ -1,4 +1,4 @@
-# Mini Project: Communication Models and Protocols
+# Mini Project: Auction_System
 
 This repository contains the implementation of the Mini Project for **CCS112 - Communication Models and Protocols**, focusing on designing and implementing communication protocols for bid timing mechanisms.
 
