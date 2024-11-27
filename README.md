@@ -31,11 +31,11 @@ The project demonstrates the use of **Client-Server** and **Publisher-Subscriber
 ## 🚀 Demo
 Check out the demo of the project [here](https://drive.google.com/file/d/1klIStzJVh-lbe2r5RUrO1oW6N0J20dtM/view?usp=sharing).
 
-🤝 Contributors
-Mohomad Iffath Hana 
-Kesara Mahima Lakpriya
-Oshan Wathsala
-Janith Hettiarachchi
+## 🤝 Contributors
+- Mohomad Iffath Hana (Group Leader)
+- Janith Kavinda Hettiarachchi
+- Kesara Mahima Lakpriya
+- Oshan Wathsala
 
-## Project Status
+## 🔄 Current Status
 The project is not currently running, and the associated services have been stopped.
