@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+   <title>Auction-Center</title>
+<link rel="icon" href="/static/img/log.png" type="image/png">
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'><link rel="stylesheet" href="/static/css/nav.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+
+<style>
+.button {background-color: #E75926; color:white;
+}
+.bvcd {background-color: #4D4949; color:white;
+}
+</style>
+</head>
+<body>
+
+<header>
+<!--- Navbar -->
+	<nav class="navbar navbar-expand-lg">
+		<div class="container">
+			<a class="navbar-brand text-white" href="#"><font color="#FF4500"><i class="fa fa-paper-plane-o"></i></font>-<b>REAL ESTATE AUCTION</b></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nvbCollapse" aria-controls="nvbCollapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="nvbCollapse">
+
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active pl-1">
+						<a class="nav-link" href="/">Home</a>
+					</li>
+                    {%if user_id == None %}
+					<li class="nav-item pl-1">
+						<a class="nav-link" href="/log_in" >Login</a>
+					</li>
+                    {%endif%}
+                    {%if user_id != None %}
+					<li class="nav-item pl-1">
+						<a class="nav-link" href="/logout">Logout</a>
+					</li>
+					<li class="nav-item pl-1">
+						<a class="nav-link" href="/user">My-profile</a>
+					</li>
+                    {%endif%}
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- Navbar #-->
+
+    {% for message in get_flashed_messages() %}
+      
+     <div class="alert alert-success" role="alert" id="fgh">
+        <p align="center"><b>{{message}}</b> 
+       <button type="button" class="button" dismiss="alert" aria-lable="close" onclick="document.getElementById('fgh').style.display='none'">close</button>
+        </p>
+        
+        
+      </div>
+     {% endfor %}
+
+</header>
+
+ <div class="container">
+    <div class="section-title text-center center">
+      <h2></h2>
+      
+    </div>
+    
+    <div class="row">
+      <div style="text-align: left"><img src="{{co_data[0][1]}}" width="500"></div>
+      <div class="col-md-6">
+          <div class="about-text">
+              <p>
+                  <ul>
+                    <li><b> Name :</b> {{co_data[0][2]}}</li>
+                    <li><b> Seller_Id:</b> {{co_data[0][0]}} </li>
+                    <li><b> Item_Category:</b> {{co_data[0][3]}}</li>
+                    <li><b> Base_Price:</b> {{co_data[0][5]}}</li>
+                    <li><b>Expiry_Date:</b> {{co_data[0][6]}}</li>
+                    
+                    <li><b>Status :</b>{{co_data[0][4]}}</li>
+                  </ul>
+              </p>
+              <p>
+                  <details>
+                      <summary><b>More Details..</b></summary>
+                      Description:- {{co_data[0][8]}}
+              </p>
+              </details>
+              </p>
+              <p>
+                {% if co_data[0][4] == "Available"%}
+                <h4><span class="badge bg-primary" >{{co_data[0][4]}}</span></h4>
+                {%endif%}
+                {% if co_data[0][4] != "Available"%}
+                <h4><span class="badge bg-danger">{{co_data[0][4]}}</span></h4>
+                {%endif%}
+
+                       
+                       <p class="button"> {%if co_data[0][4] == "Available" %}</p>
+                        
+                        <p><h3> Currently Max Bid = Rs:{{maxbid_result[0][0]}}</h3> </p>
+                        {%endif%}
+                        {% if co_data[0][4] == "Sold"%}
+                        <p class="lead" style="font-family: cursive"> Sold Price = Rs:{{maxbid_result[0][0]}} </p>
+                        {%endif%}
+
+                        <form action="#" method="POST">
+                            <span>Enter your highest bidder to win the property</span>
+                            {{co_data[0][5]}}
+                            {{maxbid_result[0][0]}}
+                            
+
+                            <input type="hidden" name="bid_user_id" value="{{user_id}}">
+                            <input type="hidden" name="expiry_date" value="{{co_data[0][6]}}">
+                            <input type="hidden" name="item_id" value="{{co_data[0][0]}}">
+                            <input type="hidden" name="time_extd" value="{{co_data[0][7]}}">
+
+                            {%if user_id  == none or co_data[0][4] != "Available" %}
+                           
+                            {%endif%}
+
+                            {%if user_id  != none and co_data[0][4] == "Available" %}
+                            {%if maxbid_result[0][0] == None: %}
+                            <input type="number" name="bid_price" required placeholder="BID" min={{co_data[0][5]+0.01}}>
+
+                            {%endif%}
+
+                            {%if maxbid_result[0][0] != None: %}
+                            <input type="number" name="bid_price" required placeholder="BID" min={{maxbid_result[0][0]+0.01}}>
+                            {%endif%}
+                            <button type="submit" class="button" value="bid_button" name="bid_button">Bid Now</button>
+                            {%endif%}
+                        </form>
+
+                        <form action="#" method="POST">
+                            
+ 
+                            <input type="hidden" name="bid_user_id" value="{{user_id}}">
+                            
+                            <input type="hidden" name="item_id" value="{{co_data[0][0]}}">
+                            
+
+                            {%if user_id  == none or co_data[0][4] != "Available" %}
+                           
+                            {%endif%}
+                            <br>
+                          
+                            {%if user_id  != none and co_data[0][4] == "Available" %}
+                            
+                            
+                          <button type="submit" class="bvcd" value="Sub_button" name="Sub_button">Subscribe</button>
+                            {%endif%}
+                        </form>
+                        
+                       
+         
+
+                    </p><h5>
+                     {%if  co_data[0][4] == "Available" %}
+                     Time Remaining:
+                     <p id="demo"></p>
+                     {%endif%}
+                    <script>
+                        var countDownDate = new Date("{{co_data[0][6]}}").getTime();
+                        var x = setInterval(function () {
+                            var now = new Date().getTime();
+                            var distance = countDownDate - now;
+
+                            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+                            document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                                + minutes + "m " + seconds + "s ";
+
+
+                            if (distance < 0) {
+                                clearInterval(x);
+                                document.getElementById("demo").innerHTML = "EXPIRED";
+                            }
+                        }, 1000);
+                    </script>
+                </h5>
+
+                    <div id="dialog-message">
+                        <p>
+                           <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+                        <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
+                        </p>
+                     </div>
+                     <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
+                
+              
+          </div>
+      </div>
+      <div class="col-md-4">
+        <div class="about-text">
+          
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <footer>  
+        <div class="row justify-content-center mt-0 pt-0 row-1 mb-0 px-sm-3 px-2">
+            <div class="col-12">
+          <br>
+          <br>
+               
+        <p align="center">&copy;2022-All rights Reserved/ Designed by <a href="/name"><font color="#FF4500"><b>GROUP-20</b></font></a></p>             
+        </div>
+    </footer>
+</div>	
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+ <script src="{{ url_for('static', filename='js/not.js') }}"></script>
+ 
+</body>
+</html>

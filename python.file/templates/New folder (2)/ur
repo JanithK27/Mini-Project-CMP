@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>User-profile</title>
+<link rel="icon" href="/static/img/log.png" type="image/png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="business Auction">
+<meta name="author" content="group-20">
+<meta name="keywords" content="auction,realestate,estate">
+
+<link rel="stylesheet" type="text/css"  href="/static/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome/css/font-awesome.css">
+<link rel="stylesheet" type="text/css"  href="/static/css/style.css">
+<link rel="stylesheet" type="text/css" href="/static/css/prettyPhoto.css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/static/css/styus.css">
+   
+
+<script type="text/javascript" src="/static/js/modernizr.custom.js"></script>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      
+</head>
+
+<body color="#f7f2f2">
+
+<div id="preloader">
+  <div id="status"> <img src="/static/img/preloader.gif" height="64" width="64" alt=""> </div>
+</div>
+
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
+      <a class="navbar-brand page-scroll" href="#page-bottom"> <i class="fa fa-paper-plane-o"></i> Real Estate Auction</a> </div>
+    
+    
+    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+      <ul class="nav navbar-nav">
+        <li class="hidden"> <a href="#page-top"></a> </li>
+        
+        <li> <a class="page-scroll" href="form.html" target="_blank"><small>Login</small></a> </li>
+
+       </ul>
+    </div>  
+  </div>
+</nav>
+
+<!--user section-->
+<div class="topper">
+<h1>{{user_Name}}</h1>
+</div>
+<div class="conta">
+    <div class="photo">
+        <img src="/static/img/ic.png" />
+        <p>{{user_Name}}</p>
+    </div>   
+    <div class="personal">
+        <div>
+            <ul>
+                <font size="4">
+                <li><b>Full Name :- </b><span> {{user_Name}}</span></li>
+                <li><b>User_Id :- </b><span>{{user_id}}</span></li>
+                <li><b>Email :- </b><span> {{user_Email}}</span></li>
+                <li><b>Mobile :-</b><span> {{user_Phone_Number}}</span></li>
+                <li><b>Address :-</b><span> {{User_Address}}</span></li></font>
+            </ul>
+            <input type="submit" value="Edit" />
+        </div>
+    </div>
+    
+    <div class="deal">
+    </div>
+    
+    <div class="recent">
+        <div>
+            {{get_bid_items_result}}
+            {{input_bid_items_result}}
+            <h4>Items(itm_name,bid_price)</h4>
+            {% for item in get_bid_items_result %}
+
+            <ul>
+                <li>{{item[0]}} <span> {{item[1]}}</span><span> {{item[2]}}</span></li>
+                
+            </ul>
+            {% endfor%}
+        </div>
+    </div>
+    
+    <div class="bought">
+        <div>
+            <h4>Auction Items(Itm_name,Itm_name,Base_price)</h4>
+            {% for item in input_bid_items_result %}
+            <ul>
+                <li>{{item[0]}} <span> {{item[1]}}</span><span> {{item[2]}}</span></li>
+                
+            </ul>
+            {% endfor%}
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!--item form section-->
+    <p align="right"><button type="submit" class="accs" onclick="openForm()">Add Items</button></p>
+    <div class="form-popup" >
+        <form method = "POST" action="/" class="form-container">
+            <h1>Enter Item Details</h1>
+            <hr />
+
+            <div class="item">
+                <p>Image location</p>
+                <input type="text" name="image" placeholder="location" />
+            </div>
+            <div class="item">
+                <p>Name</p>
+                <input type="text" name="name" required />
+            </div>
+            <div class="item">
+                <p>Category</p>
+                <input type="text" name="item_category" />
+            </div>
+            <div class="item">
+                <p>price</p>
+                <input type="text" name="base_price" />
+            </div>
+            <div class="item">
+                <p>Last_Date</p>
+                <input type="date" name="expiry_date" />
+                <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="item">
+                <p>Details</p>
+                <input type="text" name="item_description" />
+            </div>
+            <div class="item">
+                <p>Status</p>
+                <input type="text" name="status" />
+            </div>
+
+            <div>
+                <button type="submit"  name = "New_item" >ADD</button>
+                 <button type="submit" class="accs" onclick="closeForm()">CLOSE</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+</div>
+
+ <br> 
+<br>
+<br>  
+<br>            
+<div id="footer">
+  <div class="container">
+    <br><p>&copy;2022-All rights Reserved/ Designed by <a href="name.html"><b>GROUP-20</b></a></p>
+  </div>
+</div>
+
+ <script type="text/javascript" src="/static/js/jquery.1.11.1.js"></script> 
+<script type="text/javascript" src="/static/js/bootstrap.js"></script> 
+<script type="text/javascript" src="/static/js/SmoothScroll.js"></script> 
+<script type="text/javascript" src="/static/js/jquery.prettyPhoto.js"></script> 
+<script type="text/javascript" src="/static/js/jquery.isotope.js"></script> 
+<script type="text/javascript" src="/static/js/jquery.parallax.js"></script> 
+<!-- <script type="text/javascript" src="/static/js/jqBootstrapValidation.js"></script>  -->
+<script type="text/javascript" src="/static/js/contact_me.js"></script> 
+<script type="text/javascript" src="/static/js/main.js"></script> 
+
+</body>
+</html>

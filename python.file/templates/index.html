@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Real-Estate-Auction </title>
+      <link rel="icon" href="/static/img/log.png" type="image/png">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="business Auction">
+      <meta name="author" content="group-20">
+      <meta name="keywords" content="auction,realestate,estate">
+      <link rel="stylesheet" type="text/css"  href="/static/css/bootstrap.css">
+      <link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome/css/font-awesome.css">
+      <link rel="stylesheet" type="text/css"  href="/static/css/style.css">
+      <link rel="stylesheet" type="text/css" href="/static/css/prettyPhoto.css">
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
+      <script type="text/javascript" src="/static/js/modernizr.custom.js"></script>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+      <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+
+      
+      <style>
+        .button {
+            background-color: #E75926;
+            color: white;
+        }
+        ul#countdown li{
+            display: inline-block;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        ul{
+            padding: 0rem !important;
+
+        }
+
+    </style>
+   </head>
+   
+
+   <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+      <div id="preloader">
+         <div id="status"> <img src="/static/img/preloader.gif" height="64" width="64" alt=""> </div>
+     </div>
+ 
+     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+         <div class="container">
+             <div class="navbar-header">
+                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
+                 <a class="navbar-brand page-scroll" href="#page-bottom"> <i class="fa fa-paper-plane-o"></i>- Real Estate Auction</a>
+             </div>
+ 
+ 
+             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                 <ul class="nav navbar-nav">
+                     <li class="hidden"> <a href="#page-top"></a> </li>
+                     <li> <a class="page-scroll" href="#intro" name="Auction center"><small>Home</small></a> </li>
+                     <li> <a class="page-scroll" href="#about"><small>About us</small></a> </li>
+                     
+                     {%if user_id != None %}
+                     <li><a class="page-scroll" href="/user"><small>My profile</small></a> </li>
+                     <li><a class="page-scroll" href="/logout" onclick="myFunction()" ><small>Log out</small></a> </li>
+                     {%endif%}
+                     {%if user_id == None %}
+                     
+                     <li><a class="page-scroll" href="/log_in" ><small>Login</small></a></li>
+                     
+                     {%endif%}
+                     
+                     
+ 
+                 </ul>
+             </div>
+         </div>
+     </nav>
+     
+     
+
+
+      <!-- Main Section -->
+      <div id="intro">
+         <div class="intro-body">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-10 col-md-offset-1">
+                     <h1><font face="Algerian">REAL ESTATE AUCTION</font><font size="6"></font><span class="brand-heading"> 2022<font size="2">&reg;</font></span></h1>
+                     <img src="/static/img/logo.png"><br>
+                 </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+      <!-- About Section -->
+      {% for message in get_flashed_messages() %}
+      
+     <div class="alert alert-success" role="alert" id="fgh">
+        <p align="center"><b>{{message}}</b> 
+       <button type="button" class="button" dismiss="alert" aria-lable="close" onclick="document.getElementById('fgh').style.display='none'">close</button>
+        </p>
+        
+        
+      </div>
+     {% endfor %}
+     
+      <div id="about">
+         <div class="container">
+             <div class="section-title text-center center">
+                 <h2>About us</h2>
+                 <hr>
+             </div>
+             <div class="row">
+                 <div class="col-md-6"><img src="/static/img/gipp.gif" class="img-responsive"></div>
+                 <div class="col-md-6">
+                     <div class="about-text">
+                         <h4>join with us?</h4>
+                         <p>
+                             Buying a home at auction is riskier than buying through the usual process. It is vital to be well educated about how real estate auctions work. Auction properties often do not allow a home inspection or any legal way to view the interior in person. If you cannot afford the risk of buying a property in poor condition, stick with auctions that allow you to inspect the property before bidding. Review and understand all auction rules and do your due diligence on any property you are interested in—for instance, check for claims, liens, and occupants before you bid.
+                             We are provide 100% reliable customer service.
+                         </p> <br>
+                         <p>
+                             Commencing our journey with a vision to provide effective and efficient land and property
+                             solutions to our clients, we have come a long way by successfully facing many challenges on the way to the top most of real estate
+                             sector in Sri Lanka. Our priority
+                             is absolute customer satisfaction in selling, buying and developing the lands, achieved through professionalism of the staff and
+                             the dedication of the workforce fused with accuracy, discipline and principles followed up in the process well handled with strategies and
+                             years of experience. We are confident in further expanding our
+                             services by setting new goals while maintaining our position in the top most of Sri Lanka's Real Estate industry paving gateways to the lands of dreams.
+                         </p>
+                     </div>
+                 </div>
+                 <div class="col-md-4">
+                     <div class="about-text">
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+      <!-- Auction Section -->
+      <div id="works">
+         <div class="container">
+            <div class="section-title text-center center">
+                <h2>Auction Center</h2>
+                <hr>
+                <div class="clearfix"></div>
+                <p></p>
+            </div>
+            <div class="categories">
+                <ul class="cat">
+                    <li>
+                        <ol class="type">
+                           
+                            
+                        </ol>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="row">
+                <div class="portfolio-items">
+
+                    {% for item in co_data %}
+                    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
+                        <div class="portfolio-item">
+                            <div class="hover-bg">
+                                <div class="hover-text">
+                                    <form method="POST" action="/">
+                                        <input type="hidden" name="hide_id" value="{{item[0]}}">
+                                        <button type="submit" class="button" value="fp_sub_bt" name="fp_sub_bt">  {{item[2]}} </button>
+                                    </form>
+                                    <p><b><h4>{{item[5]}}</h4></b></p>
+
+                                    
+                                    {%if  item[4] != "Available" %}
+                                    <p>{{item[4]}}</p>
+                                    {%endif%}
+                                    {%if  item[4] == "Available" %}
+                                    <small class="text-muted">
+                                       <ul data-countdown="{{item[6]}}" id="countdown">
+                                          <li data-days="00"> </li>
+                                          <b>Days</b>
+                                          <li data-hours="00"> </li>
+                                          HH<font size="3px"><b>:</b> </font>
+                                          <li  data-hours="00"></li>
+                                          MM<font size="3px"><b>:</b> </font>
+                                          <li data-seconds="00"></li>
+                                          SS<font size="3px"><b></b></font> 
+                                       </ul>
+                                    </small>
+                                    {%endif%}
+                                        
+                                      
+                                       <script>
+                                        $("[data-countdown]").each(function() {
+                                            var $deadline = new Date($(this).data("countdown")).getTime();
+
+                                            var $dataDays = $(this).children("[data-days]");
+                                            var $dataHours = $(this).children("[data-hours]");
+                                            var $dataMinuts = $(this).children("[data-minuts]");
+                                            var $dataSeconds = $(this).children("[data-seconds]");
+
+                                            var x = setInterval(function() {
+
+                                                var now = new Date().getTime();
+                                                var t = $deadline - now;
+
+                                                var days = Math.floor(t / (1000 * 60 * 60 * 24));
+                                                var hours = Math.floor(t % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+                                                var minuts = Math.floor(t % (1000 * 60 * 60) / (1000 * 60));
+                                                var seconds = Math.floor(t % (1000 * 60) / (1000));
+
+                                                if (days < 10) {
+                                                    days = '0' + days;
+                                                }
+
+                                                if (hours < 10) {
+                                                    hours = '0' + hours;
+                                                }
+
+                                                if (minuts < 10) {
+                                                    minuts = '0' + minuts;
+                                                }
+
+                                                if (seconds < 10) {
+                                                    seconds = '0' + seconds;
+                                                }
+
+                                                $dataDays.html(days);
+                                                $dataHours.html(hours);
+                                                $dataMinuts.html(minuts);
+                                                $dataSeconds.html(seconds);
+
+
+                                                if (t <= 0) {
+                                                    clearInterval(x);
+
+                                                    $dataDays.html('00');
+                                                    $dataHours.html('00');
+                                                    $dataMinuts.html('00');
+                                                    $dataSeconds.html('00');
+
+                                                }
+
+                                            }, 1000);
+                                        })
+                                    </script>                                     
+                                </div>
+                                <img src="{{item[1]}}" class="img-responsive" alt="image">
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor%}
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <div id="dialog-message">
+        <p>
+           <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+        <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
+        </p>
+     </div>
+     <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
+
+                                <!-- ext tab--> 
+                                <div id="contact" class="text-center">
+                                    <div class="container">
+                                    
+                                        <div class="col-md-8 col-md-offset-2">
+                                        <br/><br/>
+                                        
+                                        </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+      <div id="footer">
+         <div class="container">
+           <br><p>&copy;2022-All rights Reserved/ Designed by <a href="/name"><b>GROUP-20</b></a></p>
+         </div>
+       </div>
+       
+       <script src="{{ url_for('static', filename='js/not.js') }}"></script>
+       <script type="text/javascript" src="/static/js/jquery.1.11.1.js"></script> 
+       <script type="text/javascript" src="/static/js/bootstrap.js"></script> 
+       <script type="text/javascript" src="/static/js/SmoothScroll.js"></script> 
+       <script type="text/javascript" src="/static/js/jquery.prettyPhoto.js"></script> 
+       <script type="text/javascript" src="/static/js/jquery.isotope.js"></script> 
+       <script type="text/javascript" src="/static/js/jquery.parallax.js"></script> 
+       <script type="text/javascript" src="/static/js/jqBootstrapValidation.js"></script> 
+       <script type="text/javascript" src="/static/js/contact_me.js"></script> 
+       <script type="text/javascript" src="/static/js/main.js"></script>
+       
+       
+       </body>
+       </html>

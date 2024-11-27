@@ -1,0 +1,83 @@
+.navbar { background-color: #333;; }
+.navbar .navbar-nav .nav-link { color: #fff; }
+.navbar .navbar-nav .nav-link:hover { color: #E75926; }
+.navbar .navbar-nav .active > .nav-link { color: #E75926; }
+
+footer a.text-light:hover { color: #333;; font-family:'Open Sans'; }
+footer .cizgi { border-right: 1px solid #535e67; }
+footer .Cntr a { color: #a9abad; text-decoration: none; }
+	
+
+ @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+ 
+ .container-fluid {
+     margin-top: 80px;
+     color: #000 !important
+ }
+
+ .card {
+     background-color: #F8F9FB !important
+ }
+
+ 
+
+ h3 {
+     font-size: calc(24px + (30 - 24) * ((100vw - 360px) / (1600 - 360))) !important
+ }
+
+ .social {
+     font-size: 21px !important
+ }
+
+ .color-text {
+     color: #757575 !important
+ }
+
+ button {
+     font-size: 16px !important;
+     background-color: #E75926;
+     padding: 6px 10px;
+ }
+
+ button:focus {
+     -moz-box-shadow: none !important;
+     -webkit-box-shadow: none !important;
+     box-shadow: none !important;
+     outline-width: 0
+ }
+
+ footer {
+     color: #caced1 !important
+ }
+
+ li {
+     margin-top: 35px;
+     margin-bottom: 35px;
+ }
+
+ .Careers {
+     cursor: pointer;
+     color: #1E88E5
+ }
+
+ .row-1 {
+     background-color: #1E242A !important
+ }
+
+ .row-2 {
+     background-color: #28323C !important
+ }
+
+.center p {
+display: inline-block;
+line-height: normal;
+vertical-align: middle;
+}
+
+
+@media (max-width: 992px) { footer .cizgi { border-right: none; } } 
+
+
+
+
