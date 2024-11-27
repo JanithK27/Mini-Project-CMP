@@ -32,7 +32,7 @@ The project demonstrates the use of **Client-Server** and **Publisher-Subscriber
 Check out the demo of the project [here](https://drive.google.com/file/d/1klIStzJVh-lbe2r5RUrO1oW6N0J20dtM/view?usp=sharing).
 
 ## 🤝 Contributors
-- Mohomad Iffath Hana (Group Leader)
+- Mohomad Iffath Hana 
 - Janith Kavinda Hettiarachchi
 - Kesara Mahima Lakpriya
 - Oshan Wathsala
