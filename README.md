@@ -29,9 +29,18 @@ The project demonstrates the use of **Client-Server** and **Publisher-Subscriber
   - Immediate and uninterrupted notifications.
 
 ## ⚙️ Technologies Used
-- **Python**: For server and client implementations.
-- **UDP Protocol**: For communication.
-- **Custom Protocol Design**: Application-level acknowledgment handling.
+- **Programming Languages**: Python
+- **Transport Layer Protocol**: UDP
+- **Libraries/Tools**: OpenCV (if used for any visualization tasks), NumPy
+- **Additional Tools**: Custom Python scripts for client-server communication
+
+## 📖 How to Run
+1. Clone the repository.
+2. Install **Python 3.x** on your system.
+3. Install **MySQL** and set it up on your local machine.
+4. Run `server.py` to start the server.
+5. Launch `client.py` for each client session.
+6. Follow the bid and notification process as per the demo.
 
 ## 🚀 Demo
 Check out the demo of the project [here](https://drive.google.com/file/d/1klIStzJVh-lbe2r5RUrO1oW6N0J20dtM/view?usp=sharing).
