@@ -51,5 +51,5 @@ Check out the demo of the project [here](https://drive.google.com/file/d/1klIStz
 - Oshan Wathsala
 - Janith Hettiarachchi
 
-## 🔄 Current Status
-The project is not currently running, and the associated services have been stopped.
+## 🙏 Acknowledgments
+Special thanks to our instructors and peers for their guidance and support throughout this project! 🚀🎉
